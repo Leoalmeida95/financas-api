@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 
 import com.leo.minhasfinancas.exceptions.RegraNegocioException;
 import com.leo.minhasfinancas.model.entity.Usuario;
-import com.leo.minhasfinancas.model.repositoys.UsuarioRepository;
+import com.leo.minhasfinancas.model.repositorys.UsuarioRepository;
 import com.leo.minhasfinancas.service.UsuarioService;
 
 @Service
@@ -37,8 +37,7 @@ public class UsuarioServiceImpl implements UsuarioService{
 		
 		if(existe) {
 			throw new RegraNegocioException("Já existe um usuário com esse Email.");
-		}
-		
+		}	
 	}
 
 }

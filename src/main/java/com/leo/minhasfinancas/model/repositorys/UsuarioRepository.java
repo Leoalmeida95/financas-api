@@ -1,4 +1,4 @@
-package com.leo.minhasfinancas.model.repositoys;
+package com.leo.minhasfinancas.model.repositorys;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
