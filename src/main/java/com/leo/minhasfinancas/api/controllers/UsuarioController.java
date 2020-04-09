@@ -12,17 +12,17 @@ import com.leo.minhasfinancas.api.dto.UsuarioDTO;
 import com.leo.minhasfinancas.exceptions.ErroAutenticacao;
 import com.leo.minhasfinancas.exceptions.RegraNegocioException;
 import com.leo.minhasfinancas.model.entity.Usuario;
+import com.leo.minhasfinancas.service.LancamentoService;
 import com.leo.minhasfinancas.service.UsuarioService;
 
+import lombok.RequiredArgsConstructor;
+
 @RestController
+@RequiredArgsConstructor
 @RequestMapping("/api/usuarios")
 public class UsuarioController {
 	
-		private UsuarioService service;
-		
-		public UsuarioController(UsuarioService service) {
-			this.service = service;
-		}
+		private final UsuarioService service;
 		
 		@PostMapping("/autenticar")
 		public ResponseEntity autenticar(@RequestBody UsuarioDTO dto) {
