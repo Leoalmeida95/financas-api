@@ -22,6 +22,9 @@ import com.leo.minhasfinancas.model.entity.Usuario;
 public class UsuarioRepositoryTest {
 //teste de integração
 	
+		String email = "leo@email.com";
+		String senha = "123";
+	
 		@Autowired
 		UsuarioRepository repository;
 		
@@ -35,7 +38,7 @@ public class UsuarioRepositoryTest {
 			manager.persist(usu);
 			
 			//ação/execução
-			boolean result = repository.existsByEmail("leo@email.com");
+			boolean result = repository.existsByEmail(email);
 			
 			//verificacao
 			Assertions.assertThat(result).isTrue();
@@ -47,7 +50,7 @@ public class UsuarioRepositoryTest {
 			//repository.deleteAll();
 			
 			//ação/execução
-			boolean result = repository.existsByEmail("leo@email.com");
+			boolean result = repository.existsByEmail(email);
 			
 			//verificacao
 			Assertions.assertThat(result).isFalse();
@@ -62,7 +65,7 @@ public class UsuarioRepositoryTest {
 			manager.persist(usu);
 			
 			//verificacao
-			Optional<Usuario> result = repository.findByEmail("leo@email.com");
+			Optional<Usuario> result = repository.findByEmail(email);
 			Assertions.assertThat(result.isPresent()).isTrue();
 		}
 		
@@ -82,7 +85,7 @@ public class UsuarioRepositoryTest {
 		public void deveRetornarVazioAoBuscarUsuarioPorEmailQuandoNaoExisteNaBase() {
 			
 			//verificacao
-			Optional<Usuario> result = repository.findByEmail("leo@email.com");
+			Optional<Usuario> result = repository.findByEmail(email);
 			Assertions.assertThat(result.isPresent()).isFalse();
 		}
 		
