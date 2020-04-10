@@ -63,7 +63,7 @@ public class LancamentoController {
 			}).orElseGet(() -> new ResponseEntity("Lançamento não encontrado na base de dados", HttpStatus.BAD_REQUEST));
 	}
 	
-	@PutMapping("{id}/atualizar-status")
+	@PutMapping("/{id}/atualizar-status")
 	public ResponseEntity atualizarStatus(@PathVariable("id") Long id, @RequestBody AtualizaStatusLancamentoDTO dto)
 	{
 		return serviceLancamento.obterPorId(id).map(e -> {
